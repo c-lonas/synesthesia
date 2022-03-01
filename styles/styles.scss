@@ -1,0 +1,11 @@
+$primaryColor: rgb(80, 30, 73);
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $primaryColor;
+    color: red;
+
+}
