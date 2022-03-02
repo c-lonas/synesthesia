@@ -1,7 +1,13 @@
 
 import { useState } from 'react'
 
-function Header({ title }) {
+import Script from 'next/script'
+
+import Header from '../components/Header'
+import Navbar from '../components/Navbar'
+import Palette from '../components/Colorful'
+
+function HeaderTemp({ title }) {
   return <h1>{title ? title : 'Default title'}</h1>
 }
 
@@ -15,34 +21,47 @@ export default function HomePage() {
   }
 
   return (
-    
-    <div class="wrapper">
-      <div class="header-container">
-        <p><a href="" target="_blank">chase lonas development</a></p>
+    <>
+      {/* <Script
+        src="../js/loader.js"
+        strategy="beforeInteractive"
+      />
+      <Script 
+        src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+        strategy="beforeInteractive"
+      />
+      <Script
+        src="../js/spectrum.js"
+        strategy='beforeInteractive'
+      />
+       */}
 
-      </div>
-      <div class="main-content">
-        <div class="center-content">
-          <Header title="Develop. Preview. Ship. 🚀" />
-          <ul>
-            {names.map(name => (
-              <li key={name}>{name}</li>
-            ))}
-          </ul>
+      <div className="wrapper">
 
-          <button onClick={handleClick}>Like ({likes})</button>
+        <Header/>
+
+        <div className="main-content">
+          <div className="center-content">
+            <HeaderTemp title="Develop. Preview. Ship. 🚀" />
+            <ul>
+              {names.map(name => (
+                <li key={name}>{name}</li>
+              ))}
+            </ul>
+            <button onClick={handleClick}>Like ({likes})</button>
+          </div>
+
+          <div className="main-palette-container">
+            <Palette/>
+          </div>
+
+          <Navbar/>
+
         </div>
-        <div class="sidebar-nav">
-          <Header title="Sidebar Navigation"/>
-          <ul>
-            <li>A button or something?</li>
-          </ul>
-        </div>
-
+        
+        
       </div>
+    </>
       
-      
-    </div>
-    
   )
 }

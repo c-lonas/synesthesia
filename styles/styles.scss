@@ -37,6 +37,15 @@ a {
     border-style: solid;
 }
 
+.main-palette-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background-color: white;
+    width: 500px;
+
+}
+
 .sidebar-nav {
     border-style: solid;
     height: 50rem;
