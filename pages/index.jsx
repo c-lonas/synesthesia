@@ -15,15 +15,34 @@ export default function HomePage() {
   }
 
   return (
-    <div>
-      <Header title="Develop. Preview. Ship. 🚀" />
-      <ul>
-        {names.map(name => (
-          <li key={name}>{name}</li>
-        ))}
-      </ul>
+    
+    <div class="wrapper">
+      <div class="header-container">
+        <p><a href="" target="_blank">chase lonas development</a></p>
 
-      <button onClick={handleClick}>Like ({likes})</button>
+      </div>
+      <div class="main-content">
+        <div class="center-content">
+          <Header title="Develop. Preview. Ship. 🚀" />
+          <ul>
+            {names.map(name => (
+              <li key={name}>{name}</li>
+            ))}
+          </ul>
+
+          <button onClick={handleClick}>Like ({likes})</button>
+        </div>
+        <div class="sidebar-nav">
+          <Header title="Sidebar Navigation"/>
+          <ul>
+            <li>A button or something?</li>
+          </ul>
+        </div>
+
+      </div>
+      
+      
     </div>
+    
   )
 }

@@ -1,11 +1,48 @@
-$primaryColor: rgb(80, 30, 73);
+$primaryColor: rgb(19, 19, 46);
+$textColor: white;
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     background-color: $primaryColor;
-    color: red;
+    font-size: 24px;
+    color: $textColor;
 
+}
+
+a {
+    text-decoration: none;
+    color: $textColor;
+}
+
+
+.header-container {
+    padding: 1rem;
+    border-style: solid;
+}
+
+.main-content {
+    border-style: solid;
+    border-color: green;
+    margin: 5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.center-content {
+    border-style: solid;
+}
+
+.sidebar-nav {
+    border-style: solid;
+    height: 50rem;
+    
+    ul {
+        list-style: none;
+        
+    }
 }
