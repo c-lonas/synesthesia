@@ -1,24 +1,90 @@
 import { RgbaColorPicker } from "react-colorful";
 import { useState } from 'react'
-import { stringify } from "postcss";
 
-const Palette = () => {
+
+
+const Palette0 = () => {
   const [color, setColor] = useState({ r:255, g:255, b:255, a:1});
-  let colorString = "";
-  for (let i in color) {
-      colorString += color[i];
-      colorString += " ";
+  const colorString = `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`;
+  
+  // useContainerBackground(colorString);    
 
-
-  }
+  SynthPad(color, colorString);
 
   return (
-      <>
-       <RgbaColorPicker color={color} onChange={setColor}/>
-        <p>🎨 {colorString}</p>
+    <>
+      <div className="palette-container">
+        <RgbaColorPicker color={color} onChange={setColor}/>
+        <p>🎨 {colorString} </p>
+      </div>
+
+    </>
     
-      </>
   );
 }
 
-export default Palette
+const SynthPad = (function(color, colorString) {
+  console.log("called synth function");
+  console.log(color.r)
+
+  //initialize synth variables
+
+  let lowNote = 261.63; // C4
+  let highNote = 493.88; // B4
+
+  // constructor
+  let SynthPad = function() {
+
+    window.AudioContext = window.AudioContext || window.webkitAudioContext;
+    myAudioContext = new window.AudioContext();
+
+  };
+
+  // play a note
+
+  SynthPad.playSound = function(event) {
+    oscillator = myAudioContext.createOscillator();
+    gainNode = myAudioContext.createGain();
+
+
+    oscillator.type = "triangle";
+
+    oscillator.connect(gainNode);
+    gainNode.connect(myAudioContext.destination);
+
+
+    // SynthPad.updateFrequency(event);
+
+    oscillator.frequency.value = color.r;
+    gainNode.gain.value = color.a;
+
+    oscillator.start(0);
+
+
+  };
+
+  SynthPad.stopSound = function(event) {
+    oscillator.stop(0);
+  }
+
+  SynthPad.calculateNote = function(colorR) {
+    let noteDifference = highNote - lowNote;
+    let noteOffset = (noteDifference / colorR)
+
+    return lowNote + noteOffset;
+  }
+
+  SynthPad.calculateVolume = function(colorA) {
+    let volumeLevel = colorA;
+    return volumeLevel;
+
+  }
+
+  return SynthPad
+
+
+});
+
+
+
+export default Palette0;
