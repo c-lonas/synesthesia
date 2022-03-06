@@ -11,7 +11,7 @@ const Palette0 = () => {
 
   const myBox = useRef(null);
 
-  useContainerBackground(colorString, myBox);    
+  // useContainerBackground(colorString, myBox);    
 
   // SynthPad(color, colorString);
 

@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 
 export const useContainerBackground = (color, myBox) => {
 
-    if (myBox === undefined) {
+    if (typeof myBox === null) {
         console.log(":(");
       
     } else {
