@@ -7,17 +7,12 @@ import { useContainerBackground } from "../hooks/useContainerBackground";
 const Palette0 = () => {
   const [color, setColor] = useState({ r:255, g:255, b:255, a:1});
   const colorString = `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`;
-  
-
-  const myBox = useRef(null);
-
-  // useContainerBackground(colorString, myBox);    
 
   // SynthPad(color, colorString);
 
   return (
     <>
-      <div className="palette-container" ref={myBox}>
+      <div className="palette-container" style={{'backgroundColor': colorString}}>
         <RgbaColorPicker color={color} onChange={setColor}/>
         <p>🎨 {colorString} </p>
       </div>
