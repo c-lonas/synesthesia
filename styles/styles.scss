@@ -1,4 +1,4 @@
-$primaryColor: rgb(19, 19, 46);
+$primaryColor: rgb(0, 25, 50);
 $textColor: white;
 
 * {
@@ -52,6 +52,7 @@ a {
     margin: 1rem;
     font-size: 22px;
     display: flex;
+    background-color: $primaryColor;
     flex-direction: column;
     justify-content: center;
     align-items: center;

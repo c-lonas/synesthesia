@@ -5,8 +5,10 @@ import { useContainerBackground } from "../hooks/useContainerBackground";
 
 
 const Palette0 = () => {
-  const [color, setColor] = useState({ r:255, g:255, b:255, a:1});
+  const [color, setColor] = useState({ r:0, g:25, b:50, a:1 });
   const colorString = `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`;
+
+
 
   // SynthPad(color, colorString);
 
@@ -15,6 +17,15 @@ const Palette0 = () => {
       <div className="palette-container" style={{'backgroundColor': colorString}}>
         <RgbaColorPicker color={color} onChange={setColor}/>
         <p>🎨 {colorString} </p>
+      </div>
+
+      <div>
+        <button>
+          Start Synth
+        </button>
+        <button>
+          Stop Synth
+        </button>
       </div>
 
     </>
